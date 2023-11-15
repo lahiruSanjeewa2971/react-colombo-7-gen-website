@@ -10,7 +10,9 @@ function NavBar() {
     }
     return (
         <nav>
-            <a href='#'>Colombo 7 Gin</a>
+            <div className={`${menuClicked ? 'logo-container' : ''}`}>
+                <a href='#'>Colombo 7 Gin</a>
+            </div>
 
             <div>
                 <ul
