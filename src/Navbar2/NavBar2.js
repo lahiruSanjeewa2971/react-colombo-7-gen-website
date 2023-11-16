@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import './navbar2.css'
-import LogoPNG from '../images/logo.png'
+import LogoPNG from '../images/logo.svg'
 import menuIcon from '../images/burger_icon_black.png'
-import closeIcon from '../images/close_icon_black.png'
+import closeIcon from '../images/close_icon_black.png';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { Button } from '@mui/material';
+
 
 function NavBar2() {
-    const [menuClicked, setMenuClicked] = useState(false)
+    const [menuClicked, setMenuClicked] = useState(false);
+    const [language, setLanguage] = useState(null);
+    const open = Boolean(language);
+
     var [date, setDate] = useState(new Date());
     useEffect(() => {
         console.log("hii")
@@ -20,11 +27,45 @@ function NavBar2() {
         setMenuClicked(!menuClicked);
     }
 
+    const handleMouseOver = (event) => {
+        setLanguage(event.currentTarget);
+      };
+    const handleClose = () => {
+        setLanguage(null);
+    }
     return (
         <nav>
             <ul id='baseNavContainer'>
                 <div className='leftSideNavLinks'>
-                    <li>LANGUAGE</li>
+                    <li > 
+                        <Button id='basic-button'
+                        aria-controls={open ? 'basic-menu' : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? 'true' : undefined}
+                        onMouseOver={handleMouseOver}
+                        
+                        >
+                            LANGUAGE
+                        </Button>
+                        <Menu
+                        id="basic-menu"
+                        language={language}
+                        open={open}
+                        onClose={handleClose}
+                        MenuListProps={{
+                        'aria-labelledby': 'basic-button',
+                        }}
+                        >
+                            <MenuItem id='menu-item' onClick={handleClose}>ENGLISH</MenuItem>
+                            <MenuItem id='menu-item' onClick={handleClose}>SPANISH</MenuItem>
+                            <MenuItem id='menu-item' onClick={handleClose}>FRENCH</MenuItem>
+                            <MenuItem id='menu-item' onClick={handleClose}>GERMAN</MenuItem>
+                            <MenuItem id='menu-item' onClick={handleClose}>JAPANESE</MenuItem>
+                            <MenuItem id='menu-item' onClick={handleClose}>ITALIAN</MenuItem>
+
+                        </Menu>
+                    </li>
+                    
                     <li>STORY</li>
                     <li>WATCH</li>
                     <li>CONTACT</li>
@@ -65,6 +106,7 @@ function NavBar2() {
                 }
             </div>
         </nav>
+        
 
     )
 }

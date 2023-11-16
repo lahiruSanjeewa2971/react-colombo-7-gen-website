@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+
 import './navbar.css'
 
 function NavBar() {
@@ -11,7 +11,7 @@ function NavBar() {
     return (
         <nav>
             <div className={`${menuClicked ? 'logo-container' : ''}`}>
-                <a href='#'>Colombo 7 Gin</a>
+                {/* <a href='#'>Colombo 7 Gin</a> */}
             </div>
 
             <div>
