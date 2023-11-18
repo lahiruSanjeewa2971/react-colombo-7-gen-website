@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './Slider.css';
 import { LeftSliderData} from './LeftSliderData';
 import { RightSliderData } from "./RightSliderData";
@@ -8,7 +8,24 @@ function Slider({leftSlides, rightSlides}) {
     const [rightcurrent, setRightCurrent] = useState(0);
     const leftlength = leftSlides.length;
     const rightlength = rightSlides.length;
+    const [screenSize, setScreenSize] = useState(getCurrentDimentions());
+    
+    function getCurrentDimentions(){
+        return {
+            width: window.innerWidth,
+            height: window.innerHeight
+        }
+    }
 
+    useEffect(() => {
+        const updateDimension = () => {
+            setScreenSize(getCurrentDimentions())
+        }
+        window.addEventListener('resize', updateDimension)
+        return(() => {
+            window.removeEventListener('resize', updateDimension);
+        })
+    }, [screenSize])
 
     const nextLeftSlide = () => {
         setLeftCurrent(leftcurrent === leftlength -1 ? 0 : leftcurrent + 1);
@@ -31,7 +48,7 @@ function Slider({leftSlides, rightSlides}) {
         return null;
     }
     return(
-        <div className="slider-container">
+        <div className="slider-container" style={{height: screenSize.height}}>
             <div className="left-slider-container">
                 {/* <div>
                     <div className="up">
@@ -46,7 +63,7 @@ function Slider({leftSlides, rightSlides}) {
                         return (
                             <div className= {index === leftcurrent ? 'slide active' : 'slide'} key={index}>
                                 {index === leftcurrent && (
-                                    <img src={slide.image} alt={slide.alt} className="left-image" />
+                                    <img src={slide.image} alt={slide.alt} className="left-image" style={{height: screenSize.height}} />
                                 )}
                             </div>
                         )
@@ -67,7 +84,7 @@ function Slider({leftSlides, rightSlides}) {
                         return (
                             <div className= {index === rightcurrent ? 'slide active': 'slide'} key={index} >
                                 {index === rightcurrent && (
-                                    <img src={slide.image} alt={slide.alt} className="right-image" />
+                                    <img src={slide.image} alt={slide.alt} className="right-image" style={{height: screenSize.height}}/>
                                 )}
                             </div>
                         )
