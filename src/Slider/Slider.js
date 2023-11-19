@@ -29,6 +29,7 @@ function Slider({leftSlides, rightSlides}) {
 
     const nextLeftSlide = () => {
         setLeftCurrent(leftcurrent === leftlength -1 ? 0 : leftcurrent + 1);
+        setRightCurrent(rightcurrent === 0 ? rightlength - 1 : rightcurrent - 1);
     }
     const nextRightSlide = () => {
         setRightCurrent(rightcurrent === rightlength -1 ? 0 : rightcurrent + 1);

@@ -76,6 +76,10 @@ nav {
 #sideBarContainer {
     display: none;
 }
+.linkTag{
+    text-decoration: none;
+    color: black;
+}
 
 @media screen and (max-width: 950px) {
     #baseNavContainer {
