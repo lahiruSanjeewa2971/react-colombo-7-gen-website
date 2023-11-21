@@ -72,7 +72,7 @@ function NavBar2() {
                     <li><Link className='linkTag' to='/contacts'>CONTACT</Link></li>
                 </div>
                 <div className="middleLogo">
-                    <img src={LogoPNG} alt='' />
+                    <Link to='/'><img src={LogoPNG} alt='' /></Link>
                 </div>
                 <div className='rightSideNavLinks'>
                     <li>FOLLOW US</li>
