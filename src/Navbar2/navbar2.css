@@ -81,6 +81,10 @@ nav {
     text-decoration: none;
     color: black;
 }
+.linkTag:hover{
+    text-decoration: none;
+    color: black;
+}
 
 @media screen and (max-width: 950px) {
     #baseNavContainer {
@@ -92,7 +96,8 @@ nav {
         width: 98%;
         align-items: center;
         justify-content: space-between;
-        margin-top: 15px;
+        margin-top: -8px;
+        /* margin-right: 100px; */
     }
 
     #sideBarContainer {
@@ -136,5 +141,22 @@ nav {
     }
     .sideBarLogoContainer{
         display: block;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .middleLogo img{
+        width: 160px;
+        height: 110px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .mobileScreenSizeNav {
+        display: flex;
+        width: 96%;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: -8px;
     }
 }

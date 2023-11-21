@@ -7,12 +7,12 @@ export const LeftSliderData = [
     },
     {
         image:
-        'https://source.unsplash.com/strawberry-juice-in-clear-drinking-glass-IKaFDABbfFY',
+        'https://source.unsplash.com/green-liquid-in-clear-drinking-glass-with-straw-3OV0ft7mG_o',
         alt:"2"
     },
     {
         image:
-        'https://source.unsplash.com/green-liquid-in-clear-drinking-glass-with-straw-3OV0ft7mG_o',
+        'https://source.unsplash.com/strawberry-juice-in-clear-drinking-glass-IKaFDABbfFY',
         alt:"3"
     },
     {
