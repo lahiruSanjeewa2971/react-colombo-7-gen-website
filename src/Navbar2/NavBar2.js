@@ -6,6 +6,7 @@ import closeIcon from '../images/close_icon_black.png';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 function NavBar2() {
@@ -68,10 +69,10 @@ function NavBar2() {
                     
                     <li>STORY</li>
                     <li>WATCH</li>
-                    <li>CONTACT</li>
+                    <li><Link className='linkTag' to='/contacts'>CONTACT</Link></li>
                 </div>
                 <div className="middleLogo">
-                    <img src={LogoPNG} alt='' />
+                    <Link to='/'><img src={LogoPNG} alt='' /></Link>
                 </div>
                 <div className='rightSideNavLinks'>
                     <li>FOLLOW US</li>

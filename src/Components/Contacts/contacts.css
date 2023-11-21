@@ -1,0 +1,58 @@
+.contactsContainer{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(251, 245, 239, 0.88);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 300px; */
+}
+.topContent{
+    width: 50%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -10px;
+}
+.topContent h2{
+    font-size: 25px;
+    font-weight: 320;
+    letter-spacing: 7px;
+    padding-bottom: 30px;
+}
+.topContent h4{
+    font-size: 14px;
+    font-weight: 340;
+    letter-spacing: 3px;
+    padding-bottom: 10px;
+}
+.bottomContentSingleLine{
+    display: flex;
+}
+.bottomContentLeftLink{
+    padding-right: 35px;
+}
+.bottomContent{
+    width: 50%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.bottomContent h2{
+    font-size: 26px;
+    font-weight: 320;
+    letter-spacing: 7px;
+    padding-bottom: 30px;
+}
+.bottomContent h4{
+    font-size: 14px;
+    font-weight: 340;
+    letter-spacing: 3px;
+    padding-bottom: 10px;
+}
