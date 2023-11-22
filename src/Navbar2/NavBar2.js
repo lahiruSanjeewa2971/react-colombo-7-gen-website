@@ -9,47 +9,45 @@ import { Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function NavBar2() {
     const [menuClicked, setMenuClicked] = useState(false);
-    const [language, setLanguage] = useState(null);
-    const open = Boolean(language);
-    const { i18n } = useTranslation();
 
-      // State
-      const [apiData, setApiData] = useState();
-      const [getState, setGetState] = useState('colombo');
-      const [state, setState] = useState('london');
-      const cityname = '';
-      const zipcode = '1';
-  
-      // API KEY AND URL
-      const apiKey = process.env.REACT_APP_API_KEY;
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=6.92&lon=79.86&appid=${apiKey}`
-  
-     // Side effect
-      useEffect(() => {
-          fetch(apiUrl)
-          .then((res) => res.json())
-          .then((data) =>{
-            setApiData(kelvinToFarenheit(data.main.temp))
-            console.log(data);
-          } );
-         }
-      
-      , [apiUrl]);
-  
-      const inputHandler = (event) => {
-          setGetState(event.target.value);
-      };
-        
-      const submitHandler = () => {
-          setState(getState);
-      };
-        
-      const kelvinToFarenheit = (k) => {
-          return (k - 273.15).toFixed(2);
-      };
+    const [isOpenLanguage, setIsOpenLanguage] = useState(false);
+    const [isOpenStory, setIsOpenStory] = useState(false);
+    const [isOpenFollow, setIsOpenFollow] = useState(false);
+    // State
+    const [apiData, setApiData] = useState();
+    const [getState, setGetState] = useState('colombo');
+    const [state, setState] = useState('london');
+    // API KEY AND URL
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=6.92&lon=79.86&appid=${apiKey}`
+
+    // Side effect
+    useEffect(() => {
+        fetch(apiUrl)
+            .then((res) => res.json())
+            .then((data) => {
+                setApiData(kelvinToFarenheit(data.main.temp))
+                console.log(data);
+            });
+    }
+
+        , [apiUrl]);
+
+    const inputHandler = (event) => {
+        setGetState(event.target.value);
+    };
+
+    const submitHandler = () => {
+        setState(getState);
+    };
+
+    const kelvinToFarenheit = (k) => {
+        return (k - 273.15).toFixed(2);
+    };
 
     var [date, setDate] = useState(new Date());
     useEffect(() => {
@@ -60,77 +58,102 @@ function NavBar2() {
         }
 
     });
- 
+
     const menuIconClicked = () => {
         setMenuClicked(!menuClicked);
     }
 
-    const handleMouseOver = (event) => {
-        setLanguage(event.currentTarget);
-      };
-    const handleClose = () => {
-        setLanguage(null);
-    }
 
-    const handleLanguageChange = (lang) => {
-        i18n.changeLanguage(lang);
-        handleClose();
-    }
     return (
         <nav>
             <ul id='baseNavContainer'>
                 <div className='leftSideNavLinks'>
-                    <li > 
-                        <Link to='/'>
-                            <Button id='basic-button'
-                            aria-controls={open ? 'basic-menu' : undefined}
-                            aria-haspopup="true"
-                            aria-expanded={open ? 'true' : undefined}
-                            onMouseOver={handleMouseOver}
-                            
-                            
-                            >
-                                LANGUAGE
-                            </Button>
-                            <Menu
-                            id="basic-menu"
-                            language={language}
-                            open={open}
-                            onClose={handleClose}
-                            MenuListProps={{
-                            'aria-labelledby': 'basic-button',
-                            }}
-                            >
-                                <MenuItem id='menu-item' onClick={() => handleLanguageChange('en')}>ENGLISH</MenuItem>
-                                <MenuItem id='menu-item' onClick={() => handleLanguageChange('es')}>SPANISH</MenuItem>
-                                <MenuItem id='menu-item' onClick={() => handleLanguageChange('fr')}>FRENCH</MenuItem>
-                                <MenuItem id='menu-item' onClick={() => handleLanguageChange('de')}>GERMAN</MenuItem>
-                                <MenuItem id='menu-item' onClick={() => handleLanguageChange('ja')}>JAPANESE</MenuItem>
-                                <MenuItem id='menu-item' onClick={() => handleLanguageChange('it')}>ITALIAN</MenuItem>
-                            </Menu>
-                        </Link>    
-                    </li>
-                    <li>
-                        <Link className='linkTag' to='/ingredients'>
-                        STORY
-                        </Link>
-                    </li>
+                    <div className="dropdownLink"
+                        onMouseEnter={() => setIsOpenLanguage(true)}
+                        onMouseLeave={() => setIsOpenLanguage(false)}
+                    >
+                        <li>LANGUAGE</li>
+                        <AnimatePresence>
+                            {isOpenLanguage && (
+                                <motion.div
+                                    className='dropdownContainer'
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.8, type: 'spring', stiffness: 150 }}
+                                >
+                                    <ul>
+                                        <li>ENGLISH</li>
+                                        <li>SPANISH</li>
+                                        <li>FRENCH</li>
+                                        <li>GERMAN</li>
+                                        <li>JAPANESE</li>
+                                        <li>ITALIAN</li>
+                                    </ul>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+                    <div className='dropdownLink'
+                        onMouseEnter={() => setIsOpenStory(true)}
+                        onMouseLeave={() => setIsOpenStory(false)}
+                    >
+                        <li>STORY</li>
+                        <AnimatePresence>
+                            {isOpenStory && (
+                                <motion.div
+                                    className='dropdownContainer'
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.8, type: 'spring', stiffness: 150 }}
+                                >
+                                    <ul>
+                                        <li><Link className='linkTag' to='/ingredients'>INGREDIENTS</Link></li>
+                                        <li>SYMBOL</li>
+                                    </ul>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
                     <li>
                         <Link className='linkTag' to='/watch'>
-                        WATCH
+                            WATCH
                         </Link>
                     </li>
                     <li>
-                        <Link className='linkTag' to='/contact'>
-                        CONTACT
+                        <Link className='linkTag' to='/contacts'>
+                            CONTACT
                         </Link>
                     </li>
                 </div>
                 <div className="middleLogo">
-                    <img src={LogoPNG} alt='' />
+                    <Link to='/'><img src={LogoPNG} alt='' /></Link>
                 </div>
                 <div className='rightSideNavLinks'>
-                    <li className='linkTag'>FOLLOW US</li>
+                    <div className="dropdownLink"
+                        onMouseEnter={() => setIsOpenFollow(true)}
+                        onMouseLeave={() => setIsOpenFollow(false)}
+                    >
+                        <li>FOLLOW US</li>
+                        <AnimatePresence>
+                            {isOpenFollow && (
+                                <motion.div
+                                    className='dropdownFollow'
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.8, type: 'spring', stiffness: 150 }}
+                                >
+                                    <ul>
+                                        <li style={{ paddingBottom: '15px' }}>FACEBOOK</li>
+                                        <li style={{ paddingBottom: '15px' }}>TWITTER</li>
+                                        <li>INSTAGRAM</li>
+                                    </ul>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
                     <li className='linkTag'>{apiData}&deg;C</li>
                     <li className='linkTag'>{date.toLocaleTimeString()}</li>
                 </div>
@@ -162,7 +185,7 @@ function NavBar2() {
                 }
             </div>
         </nav>
-        
+
 
     )
 }

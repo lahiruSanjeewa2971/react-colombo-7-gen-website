@@ -4,7 +4,8 @@ import NavBar2 from './Navbar2/NavBar2';
 import Slider from './Slider/Slider';
 import { LeftSliderData } from './Slider/LeftSliderData';
 import { RightSliderData } from './Slider/RightSliderData';
-import Ingredients from './Story/Ingredients'
+import Ingredients from './Story/Ingredients';
+import Contacts from './Components/Contacts/Contacts';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Slider leftSlides={LeftSliderData} rightSlides={RightSliderData} />} />
               <Route path='/ingredients' element={<Ingredients />} />
-             
+              <Route path='/contacts' element={<Contacts />} />
             </Routes>
       </Router>
     </>
