@@ -1,0 +1,16 @@
+{
+    "React": "これがリアクトです",
+    "Home": "家",
+    "Contact": "お問い合わせ",
+    "About": "私たちについて",
+    "username": {
+      "label": "ユーザー名",
+      "placeholder": "プレースホルダ..."
+    },
+    "password": {
+      "label": "パスワード",
+      "placeholder": "パスワードのプレースホルダ..."
+    },
+    "location": "場所を入力してください",
+    "Address": "住所を入力してください"
+  }

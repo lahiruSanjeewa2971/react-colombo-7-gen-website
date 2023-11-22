@@ -1,0 +1,16 @@
+{
+    "React": "C'est Réagir",
+    "Home": "Maison",
+    "Contact": "Contactez-nous",
+    "About": "À propos de nous",
+    "username": {
+      "label": "nom d'utilisateur",
+      "placeholder": "espace réservé..."
+    },
+    "password": {
+      "label": "mot de passe",
+      "placeholder": "espace réservé au mot de passe..."
+    },
+    "location": "Entrez l'emplacement",
+    "Address": "Entrez l'adresse"
+  }

@@ -1,0 +1,187 @@
+.story-container{
+   font-family: 'EngraversGothicBT-Regular';
+
+}
+.first-block, .second-block, .third-block, .fourth-block {
+    width: 100%;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.first-block .left-story-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(214, 122, 122);
+    object-fit: contain;
+}
+.first-block .right-story-container{
+    width: 50%;
+    display: flex;
+    height: 1122px;
+    flex-direction: column;
+    background-color: rgb(181, 84, 51);
+    color: white;
+    
+}
+.first-block-img{
+    width: 680px;
+    height: 654px;
+}
+.right-story-container-content-title{
+    margin-left: 200px;
+    margin-top: 200px;
+    margin-right: 150px;
+    letter-spacing: 0.1rem;
+    font-weight: 50;
+
+
+}
+.right-story-container-content h2{
+    text-transform: uppercase;
+}
+.right-story-container-content-p, .right-story-container-content-bottom{
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-right: 50px;
+    text-transform: uppercase;
+    font-weight: 50;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.1rem;
+}
+.second-block .left-story-container{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(200, 148, 37);
+    color: white;
+}
+.second-block-img{
+    width: 680px;
+    height: 654px;
+}
+.second-block .right-story-container{
+    width: 50%;
+    display: flex;
+    height: 1122px;
+    flex-direction: column;
+    background-color: rgb(181, 84, 51);
+    color: white;
+}
+
+.sb-left-story-container-content-title{
+    margin-left: 150px;
+    margin-top: 200px;
+    margin-right: 150px;
+    letter-spacing: 0.1rem;
+    font-weight: 50;
+   
+
+}
+.sb-left-story-container-content h2{
+    text-transform: uppercase;
+}
+.sb-left-story-container-content-p, .sb-left-story-container-content-bottom{
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-right: 50px;
+    text-transform: uppercase;
+    font-weight: 50;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.1rem;
+}
+
+.third-block .left-story-container{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(179, 214, 122);
+}
+
+
+
+
+.third-block .right-story-container{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(122, 211, 214);
+}
+
+.tb-right-story-container-content-title{
+    margin-left: 200px;
+    margin-top: 200px;
+    margin-right: 150px;
+    letter-spacing: 0.1rem;
+    font-weight: 50;
+
+
+}
+.third-block-img{
+    background-repeat: no-repeat;
+    width: 680px;
+    height: 654px;
+}
+.tb-right-story-container-content h2{
+    text-transform: uppercase;
+}
+.tb-right-story-container-content-p, .tb-right-story-container-content-bottom{
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-right: 50px;
+    text-transform: uppercase;
+    font-weight: 50;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.1rem;
+}
+
+.fourth-block .left-story-container{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(19, 28, 34);
+    color: white;
+}
+.fourth-block-img{
+    width: 680px;
+    height: 654px;
+}
+.fourth-block .right-story-container{
+    width: 50%;
+    display: flex;
+    /* height: 1122px; */
+    flex-direction: column;
+    background-color: rgb(19, 28, 34);
+    color: white;
+}
+
+.fb-left-story-container-content-title{
+    margin-left: 150px;
+    margin-top: 200px;
+    margin-right: 150px;
+    letter-spacing: 0.1rem;
+    font-weight: 50;
+}
+.fb-left-story-container-content h2{
+    text-transform: uppercase;
+}
+.fb-left-story-container-content-p, .fb-left-story-container-content-bottom{
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-right: 50px;
+    text-transform: uppercase;
+    font-weight: 50;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.1rem;
+}
