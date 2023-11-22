@@ -3,20 +3,18 @@ import './navbar2.css'
 import LogoPNG from '../images/logo.svg'
 import menuIcon from '../images/burger_icon_black.png'
 import closeIcon from '../images/close_icon_black.png';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 
 function NavBar2() {
     const [menuClicked, setMenuClicked] = useState(false);
-    const [language, setLanguage] = useState(null);
-    const open = Boolean(language);
+    const [isOpenLanguage, setIsOpenLanguage] = useState(false);
+    const [isOpenStory, setIsOpenStory] = useState(false);
+    const [isOpenFollow, setIsOpenFollow] = useState(false);
 
     var [date, setDate] = useState(new Date());
     useEffect(() => {
-        console.log("hii")
         var timer = setInterval(() => setDate(new Date()), 1000)
         return function cleanup() {
             clearInterval(timer)
@@ -28,46 +26,60 @@ function NavBar2() {
         setMenuClicked(!menuClicked);
     }
 
-    const handleMouseOver = (event) => {
-        setLanguage(event.currentTarget);
-      };
-    const handleClose = () => {
-        setLanguage(null);
-    }
     return (
         <nav>
             <ul id='baseNavContainer'>
                 <div className='leftSideNavLinks'>
-                    <li > 
-                        <Button id='basic-button'
-                        aria-controls={open ? 'basic-menu' : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? 'true' : undefined}
-                        onMouseOver={handleMouseOver}
-                        
-                        >
-                            LANGUAGE
-                        </Button>
-                        <Menu
-                        id="basic-menu"
-                        language={language}
-                        open={open}
-                        onClose={handleClose}
-                        MenuListProps={{
-                        'aria-labelledby': 'basic-button',
-                        }}
-                        >
-                            <MenuItem id='menu-item' onClick={handleClose}>ENGLISH</MenuItem>
-                            <MenuItem id='menu-item' onClick={handleClose}>SPANISH</MenuItem>
-                            <MenuItem id='menu-item' onClick={handleClose}>FRENCH</MenuItem>
-                            <MenuItem id='menu-item' onClick={handleClose}>GERMAN</MenuItem>
-                            <MenuItem id='menu-item' onClick={handleClose}>JAPANESE</MenuItem>
-                            <MenuItem id='menu-item' onClick={handleClose}>ITALIAN</MenuItem>
+                    <div className="dropdownLink"
+                        onMouseEnter={() => setIsOpenLanguage(true)}
+                        onMouseLeave={() => setIsOpenLanguage(false)}
+                    >
+                        <li>LANGUAGE</li>
+                        <AnimatePresence>
+                            {isOpenLanguage && (
+                                <motion.div
+                                    className='dropdownContainer'
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.8, type: 'spring', stiffness: 150 }}
+                                >
+                                    <ul>
+                                        <li>ENGLISH</li>
+                                        <li>SPANISH</li>
+                                        <li>FRENCH</li>
+                                        <li>GERMAN</li>
+                                        <li>JAPANESE</li>
+                                        <li>ITALIAN</li>
+                                    </ul>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
 
-                        </Menu>
-                    </li>
-                    
-                    <li>STORY</li>
+                    <div className='dropdownLink'
+                        onMouseEnter={() => setIsOpenStory(true)}
+                        onMouseLeave={() => setIsOpenStory(false)}
+                    >
+                        <li>STORY</li>
+                        <AnimatePresence>
+                            {isOpenStory && (
+                                <motion.div
+                                    className='dropdownContainer'
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.8, type: 'spring', stiffness: 150 }}
+                                >
+                                    <ul>
+                                        <li>INGREDIENTS</li>
+                                        <li>SYMBOL</li>
+                                    </ul>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+
                     <li>WATCH</li>
                     <li><Link className='linkTag' to='/contacts'>CONTACT</Link></li>
                 </div>
@@ -75,9 +87,31 @@ function NavBar2() {
                     <Link to='/'><img src={LogoPNG} alt='' /></Link>
                 </div>
                 <div className='rightSideNavLinks'>
-                    <li>FOLLOW US</li>
+                    <div className="dropdownLink"
+                        onMouseEnter={() => setIsOpenFollow(true)}
+                        onMouseLeave={() => setIsOpenFollow(false)}
+                    >
+                        <li>FOLLOW US</li>
+                        <AnimatePresence>
+                            {isOpenFollow && (
+                                <motion.div
+                                    className='dropdownFollow'
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.8, type: 'spring', stiffness: 150 }}
+                                >
+                                    <ul>
+                                        <li style={{ paddingBottom: '15px' }}>FACEBOOK</li>
+                                        <li style={{ paddingBottom: '15px' }}>TWITTER</li>
+                                        <li>INSTAGRAM</li>
+                                    </ul>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
                     <li>TEMPRATURE</li>
-                    <li>{date.toLocaleTimeString()}</li>
+                    <li style={{ width: '120px' }}>{date.toLocaleTimeString()}</li>
                 </div>
             </ul>
 
@@ -107,7 +141,7 @@ function NavBar2() {
                 }
             </div>
         </nav>
-        
+
 
     )
 }
