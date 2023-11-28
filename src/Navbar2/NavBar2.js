@@ -72,7 +72,7 @@ function NavBar2() {
                         onMouseEnter={() => setIsOpenLanguage(true)}
                         onMouseLeave={() => setIsOpenLanguage(false)}
                     >
-                        <li>LANGUAGE</li>
+                        <li className='linkTag'>LANGUAGE</li>
                         <AnimatePresence>
                             {isOpenLanguage && (
                                 <motion.div
@@ -83,12 +83,12 @@ function NavBar2() {
                                     transition={{ duration: 0.8, type: 'spring', stiffness: 150 }}
                                 >
                                     <ul>
-                                        <li>ENGLISH</li>
-                                        <li>SPANISH</li>
-                                        <li>FRENCH</li>
-                                        <li>GERMAN</li>
-                                        <li>JAPANESE</li>
-                                        <li>ITALIAN</li>
+                                        <li className='linkTag'>ENGLISH</li>
+                                        <li className='linkTag'>SPANISH</li>
+                                        <li className='linkTag'>FRENCH</li>
+                                        <li className='linkTag'>GERMAN</li>
+                                        <li className='linkTag'>JAPANESE</li>
+                                        <li className='linkTag'>ITALIAN</li>
                                     </ul>
                                 </motion.div>
                             )}
@@ -98,7 +98,7 @@ function NavBar2() {
                         onMouseEnter={() => setIsOpenStory(true)}
                         onMouseLeave={() => setIsOpenStory(false)}
                     >
-                        <li>STORY</li>
+                        <li className='linkTag'>STORY</li>
                         <AnimatePresence>
                             {isOpenStory && (
                                 <motion.div
@@ -110,7 +110,7 @@ function NavBar2() {
                                 >
                                     <ul>
                                         <li><Link className='linkTag' to='/ingredients'>INGREDIENTS</Link></li>
-                                        <li>SYMBOL</li>
+                                        <li className='linkTag'>SYMBOL</li>
                                     </ul>
                                 </motion.div>
                             )}
@@ -135,7 +135,7 @@ function NavBar2() {
                         onMouseEnter={() => setIsOpenFollow(true)}
                         onMouseLeave={() => setIsOpenFollow(false)}
                     >
-                        <li>FOLLOW US</li>
+                        <li className='linkTag'>FOLLOW US</li>
                         <AnimatePresence>
                             {isOpenFollow && (
                                 <motion.div
@@ -146,9 +146,9 @@ function NavBar2() {
                                     transition={{ duration: 0.8, type: 'spring', stiffness: 150 }}
                                 >
                                     <ul>
-                                        <li style={{ paddingBottom: '15px' }}>FACEBOOK</li>
-                                        <li style={{ paddingBottom: '15px' }}>TWITTER</li>
-                                        <li>INSTAGRAM</li>
+                                        <li className='linkTag' style={{ paddingBottom: '15px' }}>FACEBOOK</li>
+                                        <li className='linkTag' style={{ paddingBottom: '15px' }}>TWITTER</li>
+                                        <li className='linkTag' >INSTAGRAM</li>
                                     </ul>
                                 </motion.div>
                             )}
@@ -171,17 +171,17 @@ function NavBar2() {
                 </div>
                 <div className="sideBarBottomContainer">
                     <li>{date.toLocaleTimeString()}</li>
-                    <li>TEMPRATURE</li>
+                    <li>{apiData}&deg;C</li>
                 </div>
             </ul>
 
-            <div className='mobileScreenSizeNav' onClick={menuIconClicked}>
+            <div className={`mobileScreenSizeNav ${menuClicked ? 'sideNavMobileClicked' : ''}`} >
                 <div></div>
                 {
                     menuClicked ?
-                        <img src={closeIcon} alt='' width='25px' height='25px' />
+                        <img src={closeIcon} alt='' width='25px' height='25px' onClick={menuIconClicked} />
                         :
-                        <img src={menuIcon} alt='' width='25px' height='25px' />
+                        <img src={menuIcon} alt='' width='25px' height='25px' onClick={menuIconClicked} />
                 }
             </div>
         </nav>

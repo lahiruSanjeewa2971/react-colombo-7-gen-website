@@ -1,28 +1,28 @@
 export const RightSliderData = [
     {
         image:
-        'https://source.unsplash.com/pink-ceramic-bowl-besides-spoon-MHHAQR24tzc',
+        'https://www.colombosevengin.com/wp-content/uploads/2017/02/colombo_21-1000x1498.jpg',
         alt:"1"
 
      },
      {
         image:
-        'https://source.unsplash.com/strawberry-juice-beside-fruits-on-top-of-table-CpBBsda2eRI',
+        'https://www.colombosevengin.com/wp-content/uploads/2017/01/colombo_18-1000x1498.jpg',
         alt:"2"
      },
      {
         image:
-        'https://source.unsplash.com/white-and-black-ceramic-coffee-cup-on-white-saucer-cEJwMalRit8',
+        'https://www.colombosevengin.com/wp-content/themes/bespoke_1-1/images/landscapes/02_right.jpg',
         alt:"3"
      },
      {
         image:
-        'https://source.unsplash.com/burgers--GFCYhoRe48',
+        'https://www.colombosevengin.com/wp-content/uploads/2017/01/colombo_12-1000x1498.jpg',
         alt:"4"
      },
      {
         image:
-        'https://source.unsplash.com/hamburger-with-patty-pHeX8H9WQpY',
+        'https://www.colombosevengin.com/wp-content/uploads/2017/01/colombo_02-1000x1498.jpg',
         alt:"5"
      },
      {

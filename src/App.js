@@ -1,4 +1,5 @@
 import './App.css';
+import React, {useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar2 from './Navbar2/NavBar2';
 import Slider from './Slider/Slider';
@@ -9,6 +10,8 @@ import Contacts from './Components/Contacts/Contacts';
 
 
 function App() {
+
+
   return (
     <>
       <Router>
