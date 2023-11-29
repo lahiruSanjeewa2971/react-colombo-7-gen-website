@@ -88,6 +88,7 @@ function NavBar2() {
                 </div>
                 <div className='rightSideNavLinks'>
                     <div className="dropdownLink"
+                        style={{width: '200px'}}
                         onMouseEnter={() => setIsOpenFollow(true)}
                         onMouseLeave={() => setIsOpenFollow(false)}
                     >
@@ -131,13 +132,13 @@ function NavBar2() {
                 </div>
             </ul>
 
-            <div className='mobileScreenSizeNav' onClick={menuIconClicked}>
+            <div className={`mobileScreenSizeNav ${menuClicked ? 'sideNavMobileClicked' : ''}`} >
                 <div></div>
                 {
                     menuClicked ?
-                        <img src={closeIcon} alt='' width='25px' height='25px' />
+                        <img src={closeIcon} alt='' width='25px' height='25px' onClick={menuIconClicked} />
                         :
-                        <img src={menuIcon} alt='' width='25px' height='25px' />
+                        <img src={menuIcon} alt='' width='25px' height='25px' onClick={menuIconClicked} />
                 }
             </div>
         </nav>
