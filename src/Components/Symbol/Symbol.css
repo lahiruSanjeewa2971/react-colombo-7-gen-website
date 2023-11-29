@@ -1,0 +1,43 @@
+.symbol-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(63, 83, 197);
+}
+.symbol-container-content{
+  text-align: center;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+.first-paragraph{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    color: rgb(238, 211, 211);
+}
+.first-paragraph p{
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  padding-bottom: 30px;
+  text-transform: uppercase;
+  color: white;
+  line-height: 0.1;
+}
+.second-paragraph p{
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    padding-bottom: 30px;
+    text-transform: uppercase;
+    color: white;
+    line-height: 0.1;
+}
+
+

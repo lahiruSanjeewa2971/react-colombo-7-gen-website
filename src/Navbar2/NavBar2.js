@@ -110,7 +110,7 @@ function NavBar2() {
                                 >
                                     <ul>
                                         <li><Link className='linkTag' to='/ingredients'>INGREDIENTS</Link></li>
-                                        <li className='linkTag'>SYMBOL</li>
+                                        <li><Link className='linkTag' to='/symbol' >SYMBOL</Link></li>
                                     </ul>
                                 </motion.div>
                             )}
